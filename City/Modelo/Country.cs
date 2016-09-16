@@ -7,6 +7,6 @@ namespace Modelo
         public int IdCountry { get; set; }
         public string Name { get; set; }
 
-        public ICollection<State> States { get; set; }
+        //public ICollection<State> States { get; set; }
     }
 }

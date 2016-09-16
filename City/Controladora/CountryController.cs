@@ -4,19 +4,20 @@ using Modelo;
 
 namespace Controladora
 {
-    public class CityController
+    public class CountryController
     {
-        public void Add(City entity)
+        public void Add(Country entity)
         {
             var context = SingletonContext.GetContext();
-            context.Cities.Add(entity);
+            context.Countries.Add(entity);
             context.SaveChanges();
         }
 
-        public IList<City> GetAll()
+        public IList<Country> GetAll()
         {
             var context = SingletonContext.GetContext();
-            return context.Cities.ToList();
+            return context.Countries.ToList();
         }
+
     }
 }
