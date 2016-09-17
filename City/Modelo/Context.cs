@@ -9,15 +9,11 @@ namespace Modelo
         {
             Configuration.LazyLoadingEnabled = false;
             Configuration.ProxyCreationEnabled = false;
-
-            //Database.SetInitializer(new ContextInitializer());
         }
-
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-
 
             modelBuilder.Entity<Country>()
                 .HasKey(_ => _.IdCountry);

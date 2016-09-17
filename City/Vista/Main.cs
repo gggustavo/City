@@ -33,5 +33,10 @@ namespace Vista
             var country = new Country();
             country.ShowDialog();
         }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

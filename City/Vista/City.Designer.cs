@@ -33,15 +33,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.name = new System.Windows.Forms.TextBox();
             this.state = new System.Windows.Forms.ComboBox();
+            this.stateBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cityBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idCityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stateBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cityBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.stateBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cityBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stateBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // add
@@ -81,6 +81,10 @@
             this.state.TabIndex = 3;
             this.state.ValueMember = "IdState";
             // 
+            // stateBindingSource
+            // 
+            this.stateBindingSource.DataSource = typeof(Modelo.State);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -104,10 +108,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(597, 535);
             this.dataGridView1.TabIndex = 5;
             // 
-            // cityBindingSource
-            // 
-            this.cityBindingSource.DataSource = typeof(Modelo.City);
-            // 
             // idCityDataGridViewTextBoxColumn
             // 
             this.idCityDataGridViewTextBoxColumn.DataPropertyName = "IdCity";
@@ -122,9 +122,9 @@
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.Width = 200;
             // 
-            // stateBindingSource
+            // cityBindingSource
             // 
-            this.stateBindingSource.DataSource = typeof(Modelo.State);
+            this.cityBindingSource.DataSource = typeof(Modelo.City);
             // 
             // City
             // 
@@ -137,11 +137,13 @@
             this.Controls.Add(this.name);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.add);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "City";
-            this.Text = "City";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Ciudades";
+            ((System.ComponentModel.ISupportInitialize)(this.stateBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cityBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stateBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
