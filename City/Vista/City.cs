@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Controladora;
 
@@ -39,6 +32,21 @@ namespace Vista
             };
 
             _cityController.Add(city);
+            cityBindingSource.DataSource = _cityController.GetAll();
+        }
+
+       
+        private void filterName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            cityBindingSource.DataSource = _cityController.GetAllByName(filterName.Text);
+        }
+
+        private void remove_Click(object sender, EventArgs e)
+        {
+            if (cityBindingSource.Current == null) return;
+
+            var idCity = ((Modelo.City) cityBindingSource.Current).IdCity;
+            _cityController.Remove(idCity);
             cityBindingSource.DataSource = _cityController.GetAll();
         }
     }

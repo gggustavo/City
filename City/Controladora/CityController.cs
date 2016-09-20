@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Modelo;
 
@@ -17,6 +18,20 @@ namespace Controladora
         {
             var context = SingletonContext.GetContext();
             return context.Cities.ToList();
+        }
+
+        public IList<City> GetAllByName(string name)
+        {
+            var context = SingletonContext.GetContext();
+            return context.Cities.Where(_ => _.Name.Contains(name)).ToList();
+        }
+
+        public void Remove(int idCity)
+        {
+            var context = SingletonContext.GetContext();
+            var cityRemove = context.Cities.Find(idCity);
+            context.Cities.Remove(cityRemove);
+            context.SaveChanges();
         }
     }
 }

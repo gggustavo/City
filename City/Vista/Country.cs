@@ -32,5 +32,14 @@ namespace Vista
 
             countryBindingSource.DataSource = _countryController.GetAll();
         }
+
+        private void remove_Click(object sender, EventArgs e)
+        {
+            if (countryBindingSource.Current == null) return;
+
+            var idCountry= ((Modelo.Country)countryBindingSource.Current).IdCountry;
+            _countryController.Remove(idCountry);
+            countryBindingSource.DataSource = _countryController.GetAll();
+        }
     }
 }

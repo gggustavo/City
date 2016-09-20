@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Modelo;
 
@@ -19,5 +20,12 @@ namespace Controladora
             return context.Countries.ToList();
         }
 
+        public void Remove(int idCountry)
+        {
+            var context = SingletonContext.GetContext();
+            var countryRemove = context.Countries.Find(idCountry);
+            context.Countries.Remove(countryRemove);
+            context.SaveChanges();
+        }
     }
 }
